@@ -1,0 +1,34 @@
+h1.styleRed{
+    font-family: Arial, sans-serif;
+    font-size: 1.8em;
+    color: red;
+}
+
+h2.styleGreen{
+    font-family: Arial, sans-serif;
+    font-size: 1.5em;
+    color: green;
+}
+
+h3.styleBlue{
+    font-family: Arial, sans-serif;
+    font-size: 1.4em;
+    color: blue;
+}
+
+p{
+    font-family: "Times New Roman", sans-serif;
+    font-size: 1.2em;
+}
+
+p.styleRed{
+    color: red;
+}
+
+p.styleBlue{
+    color: blue;
+}
+
+p.styleGreen{
+    color: green;
+}
