@@ -1,0 +1,19 @@
+.checklist{
+    list-style-type: none;
+}
+
+.checklist li {
+    background-repeat: no-repeat;
+    background-size: 16px;
+    padding-left: 24px;
+    margin-bottom: 8px;
+    background-position: left center;
+}
+
+.checklist li.checked{
+    background-image: url("../images/vinkje.png");
+}
+
+.checklist li:not(.checked){
+    background-image: url("../images/zvinkje.png");
+}
