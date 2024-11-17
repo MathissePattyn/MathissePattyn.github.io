@@ -1,0 +1,75 @@
+body{
+    font-family: verdana, sans-serif;
+    font-size: 0.8em;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 10px;
+}
+
+body > header > h1 {
+    font-variant-caps: all-small-caps;
+    font-weight: bolder;
+    font-size: 4em;
+    background-color: lightgrey;
+    text-align: center;
+
+}
+
+body > header > img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+article > h2{
+    font-size: 1.8em;
+    text-decoration: underline;
+    font-style: oblique;
+    color: darkred;
+}
+
+article > ul > li > p > img{
+    height: 300px;
+    width: auto;
+}
+
+ul> li{
+    padding-top: 5px;
+}
+
+aside > h2 {
+    font-size: 1.8em;
+    text-decoration: underline;
+    font-style: oblique;
+    color:darkred;
+}
+
+ul>li{
+    list-style-type: circle;
+    font-size: 1.2em;
+}
+
+ul > li>  ul > li{
+    list-style-type: square;
+    font-size: 0.8em;
+}
+
+a{
+    text-decoration: none;
+    color: red;
+    font-style: italic;
+}
+a:hover{
+    font-size: 1.2em;
+}
+
+a::before{
+    content: "";
+    display: inline-block;
+    background-image: url("../images/hyperlink.png");
+    background-repeat: no-repeat;
+    background-size: 1.2em 1.2em;
+    width: 1.2em;
+    height: 1.2em;
+    vertical-align: middle;
+}

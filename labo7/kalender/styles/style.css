@@ -1,0 +1,44 @@
+table{
+    border-collapse: collapse;
+    border: 2px black solid;
+}
+
+th{
+    background-color: rgb(170, 170,200);
+    margin: 0px;
+    padding: 5px;
+
+}
+
+td{
+    margin: 5px;
+    padding: 5px;
+    border: 1px dotted gray;
+}
+
+
+.daghoofding{
+    color: rgb(200,190,240);
+    background-color: rgb(35,37,70);
+    margin: 0;
+    padding: 0;
+
+}
+
+.vrijedag{
+    background-color: rgb(250,120,120);
+}
+
+tbody > tr td:first-child, tbody > tr td:last-child{
+    background-color: rgb(255, 220, 220);
+}
+
+
+
+tbody > tr:last-child td:nth-child(n+5) {
+    background-color: lightgray;
+}
+
+tbody > tr:first-child td:first-child{
+    background-color: lightgray;
+}
