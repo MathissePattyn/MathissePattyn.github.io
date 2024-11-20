@@ -1,0 +1,79 @@
+body{
+    margin:0px;
+    padding:0px;
+    width: 90%;
+    margin-left:auto;
+    margin-right:auto;
+    font-family: Verdana, Helvetica, arial, sans-serif;
+    font-size: 1.2em;
+}
+
+h1 {
+    color:#007e7e;
+    font-size: 150%;
+}
+
+h2{
+    color:#007e7e;
+    font-size: 130%;
+}
+
+#headerimg{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#content{
+    float:left;
+    width: 70%;
+    padding-right: 8px;
+    box-sizing: border-box;
+}
+
+#Glazen{
+    float:right;
+    width: 30%;
+    border: 1px solid #007e7e;
+    padding: 2%;
+    box-sizing: border-box;
+    text-align: center;
+    background: url("../images/cocktail.gif") repeat-x;
+    line-height: 1;
+}
+
+#guarantee{
+    margin: 30px;
+    padding: 20px;
+    color: #444444;
+    background-color: #a7cece;
+    border: dotted 1px white;
+    background-image: url("../images/background.gif");
+    background-repeat: no-repeat;
+
+}
+
+h1#black{
+    color:black;
+}
+h2#red{
+    color: red;
+}
+h2#blue{
+    color: blue;
+}
+h2#green{
+    color: green;
+}
+
+footer{
+    font-size: 0.6em;
+}
+
+a{
+    color: black;
+}
+
+#bruin:hover{
+    background-color: brown;
+}

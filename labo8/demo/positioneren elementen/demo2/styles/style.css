@@ -1,0 +1,52 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    background-color: lightgrey;
+    width: 90%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+header img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+nav{
+    width: 20%;
+    height: 200px;
+    float:left;
+    background-color: white;
+}
+
+section#midden{
+    width: 80%;
+    height: 200px;
+    float:left;
+    background-color: maroon;
+    padding: 10px;
+    border: 2px solid black;
+    box-sizing: border-box;
+}
+
+nav a{
+    text-decoration: none;
+}
+nav li{
+    list-style: none;
+}
+
+footer{
+    clear: both;
+    text-align: center;
+    background-color: green;
+    height: 100px;
+}
+
+.groen{
+    background-color: green;
+    padding: 20px;
+    margin:20px;
+}
+
