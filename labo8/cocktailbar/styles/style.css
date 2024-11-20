@@ -43,13 +43,18 @@ h2{
 }
 
 #guarantee{
+    line-height: 1.9em;
+    font-style: italic;
+    font-family: georgia, "Times New Roman", Times, serif;
     margin: 30px;
-    padding: 20px;
+
     color: #444444;
-    background-color: #a7cece;
-    border: dotted 1px white;
-    background-image: url("../images/background.gif");
-    background-repeat: no-repeat;
+    border: dashed 1px white;
+
+    padding: 25px 25px 25px 80px;
+    margin: 30px;
+    background:#a7cece url("../images/background.gif") no-repeat top left;
+
 
 }
 
