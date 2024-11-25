@@ -82,3 +82,8 @@ a{
 #bruin:hover{
     background-color: brown;
 }
+
+#cursief{
+    font-style: italic;
+}
+
