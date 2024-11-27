@@ -1,0 +1,32 @@
+body{
+    margin:0px auto;
+    padding: 0px;
+    width: 95%;
+    font-family: arial, helvatica, sans-serif;
+}
+
+#top{
+    height: 200px;
+    text-align: center;
+    background: url("../images/bgsky3.jpg") no-repeat;
+    background-size: cover;
+    position: relative;
+    color:darkblue;
+}
+
+#topBovensteTitel{
+    font-size: 300%;
+    font-style: italic;
+    font-weight: bold;
+}
+
+#topOndersteTitel{
+    font-size: 240%;
+    font-weight: bold;
+}
+
+#vlietuigHeader{
+    position: absolute;
+    right: 250px;
+    bottom: 60px;
+}
