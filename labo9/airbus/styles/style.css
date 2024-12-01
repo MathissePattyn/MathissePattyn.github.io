@@ -103,7 +103,7 @@ body{
 }
 
 .footer{
-    section{
+    div{
         display: inline-block;
         margin-left: 120px;
     }
