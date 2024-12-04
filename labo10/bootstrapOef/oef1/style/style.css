@@ -1,0 +1,33 @@
+#r{
+    background-color:red;
+    width:33%;
+}
+
+#b{
+    background-color:blue;
+    width:33%;
+}
+
+#o{
+    background-color:orange;
+    width:33%;
+}
+
+#g{
+    background-color: green;
+    width: 15%;
+}
+
+#y{
+    background-color: yellow;
+    width: 70%;
+}
+
+#p{
+    background-color: purple;
+    width: 15%;
+}
+
+#c{
+    background-color: cyan;
+}
