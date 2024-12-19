@@ -1,0 +1,35 @@
+html {
+    background-color: white;
+    font-family: helvetica;
+}
+
+* {
+    padding: 10px;
+}
+
+header{
+    text-align: center;
+    color: white;
+    background-color: orange;
+
+    margin: 0px;
+
+}
+
+nav{
+    display: flex;
+    padding: 0px;
+    margin: 0px;
+    justify-content: space-evenly;
+    background-color: grey;
+}
+
+nav> a{
+    background-color: white;
+    color: orange;
+    text-decoration: none;
+    border: 1px solid black;
+    width: 100%;
+
+    flex-grow: 1;
+}
