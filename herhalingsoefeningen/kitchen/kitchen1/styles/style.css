@@ -1,0 +1,212 @@
+/** Volgende CSS gaan we ze geven **/
+*{
+    margin: 0;
+}
+
+body{
+    font-family: Helvetica, Arial, sans-serif;
+    min-width: 600px;
+}
+
+h1{
+    font-size:2.5em;
+    text-transform: uppercase;
+    border-bottom: black solid 2px;
+    width: 100%;
+    color: black;
+    *> h1{
+        padding-bottom: 1em;
+        margin-bottom: 1em;
+    }
+}
+
+h2{
+    font-size: 150%;
+    margin-bottom: 1em;
+}
+
+#imgKitchn{
+    height: 50px;
+    width: auto;
+}
+
+#kitchnLijn{
+    border-bottom: #ede8e8 1px solid;
+    width: 100%;
+}
+
+.respimg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+header{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+nav{
+    display: flex;
+    justify-content: center;
+    width: 600px;
+    margin: 0 auto;
+}
+
+#ul{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    margin: 0 auto;
+    width: 100%;
+    padding: 0px;
+}
+
+#ul li{
+    list-style-type: none;
+    text-align: center;
+    text-transform: uppercase;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border-right: #ede8e8 1px solid;
+    color: #5b4746;
+    font-size: 13px;
+}
+
+#ul li:last-child{
+    border-right: none;
+}
+
+li:hover{
+    border-bottom: #fff100 2px solid;
+}
+
+#mainHeader{
+    height: 500px;
+    background-image: url("../images/headerimage.jpg");
+    background-size: cover;
+    align-items: center;
+    font-size: 40px;
+    color:white;
+    text-shadow: 2px 2px 5px #8d99ae;
+}
+#recipes{
+    margin-top: 50px;
+}
+#sectionTitel{
+    margin-top: 50px;
+}
+
+#sectionArtikel{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+#section{
+    margin: 0 auto;
+    justify-content: center;
+    width: 600px;
+}
+
+.artikel{
+    border-top: #ddd 1px solid;
+    margin-right: 1.5em;
+    padding-top: 1em;
+}
+
+.kicker{
+    display: block;
+    text-transform: uppercase;
+    font-size: 1.2em;
+    color: #ff4d56;
+    letter-spacing: 1px;
+}
+
+#paddingImg{
+    padding-top: 1em;
+}
+
+h2 a{
+    text-decoration: none;
+    color: black;
+}
+div p{
+    line-height: 2em;
+    color: #666;
+}
+
+.auteur{
+    padding-right: 10px;
+    border-right: #ede8e8 1px solid;
+    font-style: italic;
+}
+.timestamp{
+    padding-left: 10px;
+    color: #ede8e8;
+}
+
+#sectionRecommended{
+    width: 600px;
+    margin: 0 auto;
+    h1{
+        margin-top: 50px;
+    }
+    img{
+        margin-top: 10px;
+    }
+
+}
+#divimg{
+    padding-top: 25px;
+}
+
+
+footer{
+    width: 100%;
+    border-top: #ede8e8 1px solid;
+    margin-top: 20px;
+    line-height: 2em;
+}
+
+
+#left{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 50%;
+    float: left;
+    text-align: right;
+    padding-right: 10px;
+}
+
+#right{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    float: left;
+    width: 50%;
+    color:white;
+    background-color: black;
+    padding-left: 10px;
+}
+
+footer{
+    width: 100%;
+}
+
+@media screen and (min-width: 770px){
+    .header, nav, #section, #sectionRecommended{
+        width: 750px;
+    }
+}
+
+@media screen and (min-width: 770px){
+    #mainHeader{
+        font-size: 5em;
+    }
+}
+
+@media screen and (min-width: 1000px){
+    .header, nav, #section, #sectionRecommended{
+        width: 980px;
+    }
+}
