@@ -1,0 +1,112 @@
+/* items */
+
+section div {
+    color: white;
+    font-size: 20px;
+    padding: 20px;
+    text-align: center;
+    font-size: 3em;
+}
+
+section{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto auto ;
+    grid-template-areas:
+    "een twee drie"
+    "vier vijf zes"
+    "zeven acht negen";
+
+    gap: 20px;
+}
+
+/* specific item styles */
+
+.item-1 {
+    grid-area: een;
+    background: #b03532;
+}
+.item-2 {
+    grid-area: twee;
+    background: #33a8a5;
+}
+.item-3 {
+    grid-area: drie;
+    background: #30997a;
+}
+.item-4 {
+    grid-area: vier;
+    background: #6a478f;
+}
+.item-5 {
+    grid-area: vijf;
+    background: #da6f2b;
+}
+.item-6 {
+    grid-area: zes;
+    background: #3d8bb1;
+}
+.item-7 {
+    grid-area: zeven;
+    background: #e03f3f;
+}
+.item-8 {
+    grid-area: acht;
+    background: #59a627;
+}
+.item-9 {
+    grid-area: negen;
+    background: #4464a1;
+}
+
+@media screen and (max-width: 760px){
+    section{
+        grid-template-columns: auto auto;
+        grid-template-rows: repeat(4, auto);
+        grid-template-areas:
+        "negen twee"
+        "vier vijf"
+        "zeven acht"
+        "drie drie";
+    }
+
+    .item-1{
+        display: none;
+    }
+
+    .item-2 {
+        grid-area: twee;
+        background: #33a8a5;
+    }
+    .item-3 {
+        grid-area: drie;
+        background: #30997a;
+    }
+    .item-4 {
+        grid-area: vier;
+        background: #6a478f;
+    }
+    .item-5 {
+        grid-area: vijf;
+        background: #da6f2b;
+    }
+
+    .item-6{
+        display: none;
+    }
+
+    .item-7 {
+        grid-area: zeven;
+        background: #e03f3f;
+    }
+    .item-8 {
+        grid-area: acht;
+        background: #59a627;
+    }
+    .item-9 {
+        grid-area: negen;
+        background: #4464a1;
+    }
+}
+
+

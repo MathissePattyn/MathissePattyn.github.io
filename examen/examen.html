@@ -1,0 +1,160 @@
+WEB DEVELOPMENT SAMENVATTING
+
+------------------ALGEMEEN------------------
+
+text-align: center;
+text-decoration: underline;
+
+font-size:
+font-style:
+font-weight:
+font-family:
+
+align-items:
+justify-content:
+
+p:first-line{}
+p:first-letter{}
+h2:before{}
+h2:after{}
+
+BACKGROUND P52
+background-image:
+background-repeat:
+background position:
+
+positon: absolute;
+right:
+bottom:
+
+margin-left / border-left-width / padding-left / width / padding-right / border-right-width / margin-right
+
+PSEUDO CLASSES P21 en P22
+
+@media screen and (min-width: ){}
+@media screen and (max-width){}
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+body{
+margin:0px auto;
+padding: 0px;
+width: 95%;
+}
+
+
+------------------GRID-AREA------------------
+
+Display: grid
+grid-template-columns: auto;	1fr 1fr 1fr 1fr (1fr=25%)
+grid-template-rows: auto auto auto;
+gap: 0.5em;
+
+grid-area: 1/1/2/2		Row start, column start, row end, column end
+OF
+grid-template-areas: 	"menu header header header"
+"menu main main main"
+". footer footer footer";
+.item1{grid-area: header};
+.item2{grid-area:menu};
+.item3{grid-area: main};
+.item4{grid-area: footer};
+
+
+
+------------------BOOTSTRAP------------------
+
+HTML	<link rel="stylesheet" href="styles/bootstrap-grid.css">
+
+
+extra small: 	<576px		.col-
+small: 			>=576px		.col-sm-
+medium:			>=768px		.col-md-
+large:			>=992px		.col-lg-
+extra-large:	>=1200px	.col-xl-
+
+
+<div class="container-fluid">
+  <div class="row">
+    <div class"="col-md-6" id="1"> 1 </div>
+  <div class"="col-md-6" id="2"> 2 </div>
+</div>
+
+<div class="row">
+  <div class="col-md-4">
+    <div id="3"> 3 </div>
+    <div id="4"> 4 </div>
+  </div>
+  <div class="col-md-8" id="5"> 5 </div>
+</div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col order-last">
+      First, but last
+    </div>
+    <div class="col">
+      Second, but unordered
+    </div>
+    <div class="col order-first">
+      Third, but first
+    </div>
+  </div>
+</div>
+
+
+------------------FLOAT------------------
+
+#box1{
+width: 100%
+}
+#box2{
+float: left;
+width: 70%
+}
+#box3{
+float: left;
+width: 30%;
+}
+clear:both;
+
+
+------------------FLEXBOX------------------
+
+.container{
+display:flex;
+flex-direction:		(horizontaal/verticaal)
+flex-wrap:			(elementen na elkaar)
+justify-content:	(uitlijning over de hoofd-as)
+align-items:		(uitlijning in de richting die haaks staat op de rij)
+align-content:
+}
+
+
+
+------------------LIST ITEMS------------------
+
+<ul>
+  <li> item1
+    <ul>
+      <li> subitem 1.1 </li>
+      <li> subitem 1.2 </li>
+    </ul>
+  </li>
+  <li> item2 </li>
+  <li> item3
+    <ul>
+      <li> subitem 3.1 </li>
+    </ul>
+  </li>
+</ul>
+
+list-style:
+li a:hover{}
+
+Horizontale lijst:
+li:{
+display: inline;
+}
+
