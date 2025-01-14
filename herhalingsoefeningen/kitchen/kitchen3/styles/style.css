@@ -1,0 +1,187 @@
+/** Volgende CSS gaan we ze geven **/
+.respimg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+*{
+    margin: 0px;
+    font-family: Helvetica, Arial, sans-serif;
+    padding: 0px;
+}
+
+h1{
+    text-transform: uppercase;
+    font-size: 2.5em;
+    border-bottom: black solid 2px;
+    margin-bottom: 1em;
+    padding-bottom: 1em;
+}
+
+h2{
+    font-size: 1.5em;
+}
+
+header > img{
+    height: 50px;
+}
+
+header{
+    width: 600px;
+    margin: 0px auto;
+    padding: 0px;
+    position: relative;
+}
+
+.lijnOnder{
+    border-bottom: #ede8e8 1px solid;
+}
+
+.lijnBoven{
+    border-top: #ede8e8 1px solid;
+    width: 100%;
+}
+
+nav{
+    width: 600px;
+    margin: 0px auto;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+}
+
+li{
+    list-style: none;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-right: #ede8e8 1px solid;
+    text-transform: uppercase;
+    color: #5b4746;
+    font-size: 13px;
+    border-bottom: 1px solid transparent;
+}
+
+li:last-child{
+    border-right: none;
+}
+
+li:hover{
+    border-bottom: #fff100 1px solid;
+}
+
+.mainHeader{
+    height: 500px;
+    background: url("../images/headerimage.jpg");
+    background-size: cover;
+    width: 100%;
+    color: white;
+    font-size: 50px;
+    text-shadow: 2px 2px 5px #8D99AE;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mainRecipes{
+    width: 600px;
+    margin: 0px auto;
+    margin-top: 50px;
+}
+
+.gridRecipe{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+article{
+    margin-right: 1.5em;
+    border-top: #dddddd 1px solid;
+}
+
+.kicker{
+    text-transform: uppercase;
+    font-size: 1.2em;
+    text-space: 1px;
+    color: #ff4d56;
+}
+
+article a{
+    text-decoration: none;
+    color: black;
+}
+
+article p{
+    padding-top: 1em;
+    color: #666666;
+    line-height: 2;
+}
+
+.auteur{
+    padding-right: 10px;
+    border-right: #ede8e8 1px solid;
+    font-style: italic;
+}
+
+.timestamp{
+    color: #666666;
+    padding-left: 10px;
+}
+
+.rec{
+    width: 600px;
+    margin: 0px auto;
+    margin-top: 50px;
+}
+
+.col-sm-12, .col-md-6, .col-lg-4{
+    padding-bottom: 25px;
+}
+
+footer{
+    width: 100%;
+    border-top: #ede8e8 1px solid;
+    line-height: 2em;
+}
+
+footer div{
+    padding: 20px;
+}
+
+#left{
+    float: left;
+    width: 50%;
+    text-align: end;
+}
+
+#right{
+    float: right;
+    width: 50%;
+    color: white;
+    background-color: black;
+}
+
+@media screen and (min-width: 770px){
+    header, nav, .mainRecipes, .rec{
+        width: 750px;
+    }
+}
+
+@media screen and (min-width: 1000px){
+    header, nav, .mainRecipes, .rec{
+        width: 980px;
+    }
+}
+
+@media screen and (min-width: 800px){
+    .mainHeader{
+        font-size: 5em;
+    }
+}
