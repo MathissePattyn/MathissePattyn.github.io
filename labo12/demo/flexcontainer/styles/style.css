@@ -21,10 +21,10 @@ section{
     height: 500px;
     display: flex;
     /*flex-direction: row; //default*/
-    /*flex-direction: column;*/
+    flex-direction: column;
     /*flex-direction: row-reverse;*/
 
-    /*flex-wrap: wrap;*/
+    flex-wrap: wrap;
 
     /*justify-content: stretch; //default*/
     /*justify-content: flex-end;*/

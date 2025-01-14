@@ -1,0 +1,135 @@
+
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    width: 95%;
+    margin: auto;
+}
+
+.top{
+    height: 200px;
+    background-image: url("../images/bgsky3.jpg");
+    background-size: cover;
+    text-align: center;
+    position: relative;
+    color: darkblue;
+}
+
+#topBovensteTitel{
+    font-size: 300%;
+    font-weight: bold;
+    font-style: italic;
+    margin-top: 0px;
+}
+
+#topOndersteTitel{
+    font-size: 240%;
+    font-weight: bold;
+}
+
+#vliegtuig{
+    position: absolute;
+    right: 250px;
+    bottom: 60px;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: 75% 25%;
+    grid-template-areas:
+    "main news"
+    "gallery .";
+}
+
+.news{
+    grid-area: news;
+    background-color: #dddddd;
+    border: 1px solid #999999;
+    p{
+        color: #666666;
+        font-size: 90%;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    h3{
+        color: white;
+        background-color: blue;
+        text-align: center;
+        font-size: 120%;
+    }
+}
+
+.grid2{
+    grid-area: main;
+}
+
+.flex{
+    display: flex;
+    padding-right: 10px;
+}
+
+.logo{
+    padding-top: 20px;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.introduction{
+    text-align: justify;
+    padding-right: 30px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    p{
+        margin:0;
+    }
+}
+
+#blauweTekst{
+    color: blue;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.gallery{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+    background-color: #999999;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+}
+
+.foto{
+    height: 180px;
+    width: 180px;
+    padding: 10px;
+    background-color: white;
+    border: 1px dotted #999999;
+}
+
+aside{
+    background-color: #666666;
+    color: white;
+    line-height: 2em;
+}
+
+aside ul{
+    margin-top: 0px;
+    padding-left: 120px;
+    padding-top: 10px;
+}
+
+li a{
+    text-decoration: none;
+    color: white;
+}
+
+.block{
+    display: inline-block;
+}
+
+footer{
+    text-align: center;
+}
