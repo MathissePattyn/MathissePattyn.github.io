@@ -5,18 +5,21 @@ const setup = () => {
 
 }
 
-const addFoto = () => {
+const voegToe = () => {
     let fotoUrl = document.getElementById('txtInput').value;
-    if (fotoUrl.trim() !== "") {
-        let img = document.createElement('img');
-        img.src = fotoUrl;
-        img.alt = "afbeelding";
+    let img = document.createElement('img');
+    img.src = fotoUrl;
+    img.alt = "afbeelding";
+    let divImages = document.getElementById("divImages");
+    divImages.appendChild(img);
+}
 
-        let divImages = document.getElementById("divImages");
-        divImages.appendChild(img);
-    } else{
-        alert("Gelieve een geldige URL in te geven.");
-    }
+const addFoto = () => {
+    let txtInput = document.getElementById('txtInput');
+    let url = txtInput.value;
+    let divImages = document.getElementById("divImages");
+    divImages.innerHTML += "<img src='"+ url + "'/>";
+    txtInput.value = "";
 }
 
 window.addEventListener("load", setup);

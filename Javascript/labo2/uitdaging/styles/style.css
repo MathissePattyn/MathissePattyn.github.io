@@ -1,0 +1,7 @@
+.zonderBullets li{
+    list-style-type: none;
+}
+
+.listItem li{
+    list-style-type: circle;
+}
