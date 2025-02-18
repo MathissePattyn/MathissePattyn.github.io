@@ -7,21 +7,6 @@ const setup = () => {
 
 }
 
-const zonderBulletpoints = () => {
-    let listItem = document.getElementsByClassName('listItem');
-    for (let item of listItem) {
-        item.className = "zonderBullets"
-    }
-
-}
-
-const metBulletpoints = () => {
-    let zonderBullets = document.getElementsByClassName('zonderBullets');
-    for (let item of zonderBullets) {
-        item.className = "listItem";
-    }
-}
-
 const met = () => {
     let listItems = document.getElementsByClassName('listItem');
     console.log(listItems[0].className);
