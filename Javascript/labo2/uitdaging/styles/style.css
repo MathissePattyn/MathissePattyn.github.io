@@ -1,7 +1,7 @@
-.zonderBullets li{
-    list-style-type: none;
+.zonderBullets{
+    list-style-type: none !important;
 }
 
-.listItem li{
+.listItem{
     list-style-type: circle;
 }
