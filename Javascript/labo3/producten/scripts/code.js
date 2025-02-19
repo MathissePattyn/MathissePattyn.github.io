@@ -11,7 +11,7 @@ const herbereken = () => {
     let subtotalen = document.getElementsByClassName("subtotaal");
     let eindtotaal = document.getElementsByClassName("eindtotaal");
     let eindresultaat = 0.00;
-    
+
     for (let i = 0; i < subtotalen.length; i++) {
 
         let prijsGetal = parseFloat(prijzenString[i].textContent);
