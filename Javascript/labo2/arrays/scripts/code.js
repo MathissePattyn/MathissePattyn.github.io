@@ -24,7 +24,7 @@ const setup = () => {
     for (let i=0; i<familieLeden.length; i++){
         console.log("Familielid " +familieLeden[i]);
     }
-    familie.join(" - ");
+    familieLeden.join(" - ");
 }
 
 
