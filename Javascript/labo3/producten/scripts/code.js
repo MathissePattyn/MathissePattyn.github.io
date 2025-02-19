@@ -29,7 +29,6 @@ const herbereken = () => {
 
 
         eindresultaat += subtotaal;
-        console.log(eindresultaat);
     }
     eindtotaal[0].textContent = eindresultaat.toFixed(2);
 }
