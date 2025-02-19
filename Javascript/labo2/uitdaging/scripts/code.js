@@ -10,7 +10,7 @@ const setup = () => {
 const met = () => {
     let listItems = document.getElementsByClassName('listItem');
     console.log(listItems[0].className);
-    listItems[0].classList.add('listItem');
+    listItems[0].classList.add('metBullets');
     listItems[0].classList.remove('zonderBullets');
     console.log(listItems[0].className);
 
@@ -20,6 +20,7 @@ const zonder = () => {
     let listItems = document.getElementsByClassName('listItem');
     console.log(listItems[0].className);
     listItems[0].classList.add('zonderBullets');
+    listItems[0].classList.remove("metBullets");
     console.log(listItems[0].className);
 }
 
