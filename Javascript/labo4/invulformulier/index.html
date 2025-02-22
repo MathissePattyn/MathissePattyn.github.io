@@ -3,16 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="styles/style.css">
-    <title>invulformulier</title>
+    <title>formulierElementen</title>
 </head>
 <body>
-<form action="" method="post">
- <label for="firstName">First name*:</label>
- <input type="text" name="firstName" required placeholder="Your first name">
- <br/>
 
- <label for="lastName">Last name*:</label>
- <input type="text" name="lastName" required placeholder="Your last name">
+<form action="" method="post" id="formulier">
+
+    <label>First name*:</label>
+    <input type="text" name="FirstName" required placeholder="Your first name" autofocus="autofocus"/>
+    <br/>
+
+    <label>Last name*:</label>
+    <input type="text" name="LastName" required placeholder="Your last name" />
+    <br/>
+
+    <label>Which sport do you train?</label>
+    <br/>
+    <label>Running</label><input type="checkbox" name="running">
+    <br/>
+    <label>Swimming</label><input type="checkbox" name="swimming">
+    <br/>
+    <label>Rowing</label><input type="checkbox" name="rowing">
+    <br/>
+
+    <label>What is your gender?</label>
+    </br>
+    <input type="radio" name="gender"/>Male
+    <input type="radio" name="gender"/> Female
+    <br/>
+
+    <label>Favourite movie</label>
+    <input type="text" name="favouriteMovie"/>
+    <br/>
+    <label>Favourite qoute</label>
+    <input type="text" name="favouriteQuote" placeholder="Write your favorite quote">
+    <br/>
+
+    <label>Password*:</label>
+    <input type="password" name="password" size="10" maxlength="10" required>
+    <br/>
+
+    <label>Favourite food:</label>
+    <select name="favouriteFood" size="1">
+        <option value="Hamburger" selected="selected">Hamburger</option>
+        <option value="Braadworst">Braadworst</option>
+    </select>
+    <br/>
+
+    <input type="file" name="gekozenBestand">
+    <br/>
+
+    <label>Email adress</label>
+    <input type="email" name="email" placeholder="Enter your email adress">
+    <br/>
+
+    <label>Favourite site</label>
+    <input type="url" name="favouriteUrl" placeholder="Enter the URL of your favourite site">
+    <br/>
+
+    <label>Favourite number between 1-10</label>
+    <input type="number" name="favouriteNumber1-10" min="1" max="10">
+    <br/>
+
+    <label>Favourite number between 11-1000</label>
+    <input type="range" name="favouriteNumber11-1000" min="11" max="1000">
+    <br/>
+
+    <label>When were you born</label>
+    <input type="date" name="geboortejaar">
+    <br/>
+
+    <label>Belgium zip-code reg number*:</label>
+    <input type="text" required placeholder="9999" pattern="[0-9]{4}">
+    <br/>
+
+    <label>Search for something</label>
+    <input type="search" name="search"/>
+    <br/>
+
+    <label>What is your favourite color?</label>
+    <input type="color" name="color">
+    <br/>
+
+
+    <br/>
+    <input type="submit" name="btnSubmit" value="Submit"/>
 </form>
 
 </body>
