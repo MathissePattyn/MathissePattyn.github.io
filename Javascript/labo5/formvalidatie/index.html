@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="styles/style.css">
+  <title>Formvalidatie</title>
+</head>
+<body>
+
+<form action="" method="post" id="formulier">
+
+  <div class="line">
+    <label for="txtVoornaam">Voornaam</label>
+    <input type="text" id="txtVoornaam" />
+    <span class="errorMessage" id="errVoornaam"></span>
+  </div>
+
+
+  <div class="line">
+    <label for="txtFamilienaam">Familienaam</label>
+    <input type="text" id="txtFamilienaam" />
+    <span class="errorMessage" id="errFamilienaam"></span>
+  </div>
+
+  <label>Geboortedatum</label>
+  <input type="text" id="txtgeboortedatum" required placeholder="jjjj-mm-dd"/>
+  <br/>
+
+  <label>Email</label>
+  <input type="text" id="txtemail" required/>
+  <br/>
+
+  <label>Aantal kinderen</label>
+  <input type="text" id="txtkinderen"/>
+  <br/>
+
+  <input type="button" id="btnValidatie" value="Valideer"/>
+
+</form>
+
+<script type="text/javascript" charset="utf-8" src="scripts/code.js"></script>
+</body>
+</html>

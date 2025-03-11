@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="styles/style.css">
+  <title>formwaarden</title>
+</head>
+<body>
+
+<form action="" method="post" id="formulier">
+
+  <label>Is roker</label>
+  <input type="checkbox" name="roker"/>
+  <br/>
+
+  <label>Moedertaal</label>
+  <input type="radio" name="moedertaal" value="Nederlands"/>Nederlands
+  <input type="radio" name="moedertaal" value="Frans"/>Frans
+  <input type="radio" name="moedertaal" value="Engels"/>Engels
+  <br/>
+
+  <label>Favorite buurland</label>
+  <select name="favoriteBuurland">
+    <option value="nederland">Nederland</option>
+    <option value="frankrijk">Frankrijk</option>
+    <option value="duitsland">Duitsland</option>
+  </select>
+  <br/>
+
+  <label>Bestelling</label>
+  <select name="bestelling" multiple="multiple">
+    <option value="brood">Brood</option>
+    <option value="melk">melk</option>
+    <option value="biefstuk">biefstuk</option>
+    <option value="chips">chips</option>
+    <option value="krant">krant</option>
+  </select>
+  <br/>
+</form>
+
+<input type="button" value="Toon resultaat" id="btnResultaat"/>
+
+<script type="text/javascript" charset="utf-8" src="scripts/code.js"></script>
+
+</body>
+</html>

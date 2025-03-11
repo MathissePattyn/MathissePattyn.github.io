@@ -9,7 +9,7 @@ const setup = () => {
     }
     let message = "Voeg een naam in";
 
-    let naam = prompt(message, String);
+    let naam = prompt(message);
 
     const voegNaamToe = (familieLeden) => {
         familieLeden.push(naam);
