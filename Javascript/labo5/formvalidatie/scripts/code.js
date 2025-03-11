@@ -12,22 +12,31 @@ const valideer = () => {
 }
 
 const valideerKinderen = () => {
+    let txtKinderen = document.getElementById("txtKinderen");
+    let errKinderen = document.getElementById("errKinderen");
+    let kinderen = txtKinderen.value.trim();
+    let kinderenInt = parseInt(kinderen, 10);
 
+    if(!isGetal(kinderen) || kinderenInt < 0){
+        reportError(txtKinderen, errKinderen, 'is geen positief getal');
+    } else if(kinderenInt < 99){
+        reportError(txtKinderen, errKinderen, 'is te vruchtbaar');
+    } else{
+        clearError(txtKinderen, errKinderen);
+    }
 }
+
 
 const valideerVoornaam = () => {
     let txtVoornaam = document.getElementById("txtVoornaam");
     let errVoornaam = document.getElementById("errVoornaam");
     let voornaam = txtVoornaam.value.trim();
     if(voornaam.length > 30) {
-        txtVoornaam.classList.add("invalid");
-        errVoornaam.innerHTML = "max. 30 karakters";
+        reportError(txtVoornaam, errVoornaam, "max. 30 karakters");
     } else if(voornaam.length === 0) {
-        txtVoornaam.classList.add("invalid");
-        errVoornaam.innerHTML = "Verplicht veld";
+        reportError(txtVoornaam, errVoornaam, 'Verplicht veld');
     }else {
-        txtVoornaam.className="";
-        errVoornaam.innerHTML = "";
+        clearError(txtVoornaam, errVoornaam);
     }
 }
 
@@ -36,14 +45,11 @@ const valideerFamilienaam = () =>{
     let errFamilienaam = document.getElementById("errFamilienaam");
     let familienaam = txtFamilienaam.value.trim();
     if(familienaam.length > 50){
-        txtFamilienaam.classList.add("invalid");
-        errFamilienaam.innerHTML = "max. 50 karakters";
+        reportError(txtFamilienaam, errFamilienaam, 'max 50 karakters');
     } else if(familienaam.length === 0 ){
-        txtFamilienaam.classList.add("invalid");
-        errFamilienaam.innerHTML = "Verplicht veld";
+        reportError(txtFamilienaam, errFamilienaam, 'Verplicht veld');
     } else{
-        txtFamilienaam.className="";
-        errFamilienaam.innerHTML = "";
+        reportError(txtFamilienaam, errFamilienaam);
     }
 }
 
@@ -52,26 +58,21 @@ const valideerGeboortedatum = () =>{
     let errGeboortedatum = document.getElementById("errGeboortedatum");
     let geboortedatum = txtGeboortedatum.value.trim();
 
-    txtGeboortedatum.classList.remove("invalid");
-    errGeboortedatum.innerHTML = "";
-
-    // console.log(geboortedatum);
+    clearError(txtGeboortedatum, errGeboortedatum);
 
     if(geboortedatum === ""){
-        txtGeboortedatum.classList.add("invalid");
-        errGeboortedatum.innerHTML = "Verplicht veld";
+        reportError(txtGeboortedatum, errGeboortedatum, 'Verplicht veld');
         return;
     }
 
-    if(geboortedatum[4] === "-" && geboortedatum[7] === "-"){
+    if(geboortedatum[4] === "-" && geboortedatum[7] === "-" && geboortedatum.length === 10){
         let jaar = geboortedatum.substring(0,4);
         let maand = geboortedatum.substring(5,7);
         let dag = geboortedatum.substring(8,10);
 
-        geldigeDatum(jaar,maand,dag);
+        geldigeDatum(jaar,maand,dag, txtGeboortedatum, errGeboortedatum);
     } else{
-        txtGeboortedatum.classList.add("invalid");
-        errGeboortedatum.innerHTML = "formaat is niet jjjj-mm-dd";
+        reportError(txtGeboortedatum, errGeboortedatum, 'Formaat is niet jjjj-mm-dd');
     }
 
 
@@ -83,48 +84,36 @@ const valideerEmail = () => {
     let email = txtEmail.value.trim();
 
     if(email === "") {
-        txtEmail.classList.add("invalid");
-        errEmail.innerHTML = "verplicht veld";
+        reportError(txtEmail, errEmail, 'Verplicht veld');
         return;
     }
 
     let index = email.indexOf("@");
-    geldigeEmail(index, email);
+    geldigeEmail(index, email, txtEmail, errEmail);
 }
 
-const geldigeEmail = (index, email) => {
+const geldigeEmail = (index, email, txtEmail, errEmail) => {
     if (index === -1){
-        txtEmail.classList.add("invalid");
-        errEmail.innerHTML = "geen geldig email-adres";
-        return;
+        reportError(txtEmail, errEmail, 'Geen geldig email-adres');
     } else if (email[index-1] === "" && email[index+1] === "") {
-        txtEmail.classList.add("invalid");
-        errEmail.innerHTML = "geen geldig email-adres";
-        return;
+        reportError(txtEmail, errEmail, 'Geen geldig email-adres');
     } else if(index === 0 || index === email.length-1){
-        txtEmail.classList.add("invalid");
-        errEmail.innerHTML = "geen geldig email-adres";
+        reportError(txtEmail, errEmail, 'Geen geldig email-adres');
     }
     else{
-        txtEmail.classList.remove("invalid");
-        txtEmail.className = "";
-        errEmail.innerHTML = "";
+        clearError(txtEmail, errEmail)
     }
 }
 
-const geldigeDatum =(jaar, maand, dag) =>{
+const geldigeDatum =(jaar, maand, dag, txtGeboortedatum, errGeboortedatum) =>{
     if(!geldigJaar(jaar)){
-        txtGeboortedatum.classList.add("invalid");
-        errGeboortedatum.innerHTML = "Geen geldig jaar";
+        reportError(txtGeboortedatum, errGeboortedatum, 'Geen geldig jaar');
     } else if (!geldigeMaand(maand)) {
-        txtGeboortedatum.classList.add("invalid");
-        errGeboortedatum.innerHTML = "Geen geldige maand";
+        reportError(txtGeboortedatum, errGeboortedatum, 'Geen geldige maand');
     }else if (!geldigeDag(dag)) {
-        txtGeboortedatum.classList.add("invalid");
-        errGeboortedatum.innerHTML = "Geen geldige dag";
+        reportError(txtGeboortedatum, errGeboortedatum, 'Geen geldige dag');
     }else {
-        txtGeboortedatum.className = "";
-        errGeboortedatum.innerHTML = "";
+        clearError(txtGeboortedatum, errGeboortedatum);
     }
 }
 
@@ -143,6 +132,7 @@ const geldigeMaand = (maand) => {
     }
     let maandInt = parseInt(maand, 10);
     if(maand.length === 2 && maandInt > 0) {
+        console.log(maand.length);
         return true;
     }
 }
@@ -158,7 +148,18 @@ const geldigeDag = (dag) => {
 }
 
 const isGetal = (tekst) => {
+    console.log(!isNaN(tekst));
     return !isNaN(tekst);
 }
+
+const reportError = (element, errElement, message) => {
+    element.className="invalid";
+    errElement.innerHTML = message;
+};
+
+const clearError = (element, errElement) => {
+    element.className="";
+    errElement.innerHTML = "";
+};
 
 window.addEventListener("load", setup);
