@@ -12,27 +12,32 @@
   <div class="line">
     <label for="txtVoornaam">Voornaam</label>
     <input type="text" id="txtVoornaam" />
-    <span class="errorMessage" id="errVoornaam"></span>
+    <span class="error" id="errVoornaam"></span>
   </div>
-
 
   <div class="line">
     <label for="txtFamilienaam">Familienaam</label>
     <input type="text" id="txtFamilienaam" />
-    <span class="errorMessage" id="errFamilienaam"></span>
+    <span class="error" id="errFamilienaam"></span>
   </div>
 
-  <label>Geboortedatum</label>
-  <input type="text" id="txtgeboortedatum" required placeholder="jjjj-mm-dd"/>
-  <br/>
+ <div class="line">
+   <label for="txtGeboortedatum">Geboortedatum</label>
+   <input type="text" id="txtGeboortedatum"/>
+   <span class="error" id="errGeboortedatum"></span>
+ </div>
 
-  <label>Email</label>
-  <input type="text" id="txtemail" required/>
-  <br/>
+  <div class="line">
+    <label for="txtEmail">Email</label>
+    <input type="text" id="txtEmail"/>
+    <span class="error" id="errEmail"></span>
+  </div>
 
-  <label>Aantal kinderen</label>
-  <input type="text" id="txtkinderen"/>
-  <br/>
+  <div class="line">
+    <label for="txtKinderen">Aantal kinderen</label>
+    <input type="text" id="txtKinderen"/>
+    <span class="error" id="errKinderen"></span>
+  </div>
 
   <input type="button" id="btnValidatie" value="Valideer"/>
 
