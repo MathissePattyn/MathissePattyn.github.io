@@ -7,6 +7,12 @@ const valideer = () => {
     valideerVoornaam();
     valideerFamilienaam();
     valideerGeboortedatum();
+    valideerEmail();
+    valideerKinderen();
+}
+
+const valideerKinderen = () => {
+
 }
 
 const valideerVoornaam = () => {
@@ -57,10 +63,56 @@ const valideerGeboortedatum = () =>{
         return;
     }
 
-    let jaar = geboortedatum.substring(0,4);
-    let maand = geboortedatum.substring(5,7);
-    let dag = geboortedatum.substring(8,10);
+    if(geboortedatum[4] === "-" && geboortedatum[7] === "-"){
+        let jaar = geboortedatum.substring(0,4);
+        let maand = geboortedatum.substring(5,7);
+        let dag = geboortedatum.substring(8,10);
 
+        geldigeDatum(jaar,maand,dag);
+    } else{
+        txtGeboortedatum.classList.add("invalid");
+        errGeboortedatum.innerHTML = "formaat is niet jjjj-mm-dd";
+    }
+
+
+}
+
+const valideerEmail = () => {
+    let txtEmail = document.getElementById("txtEmail");
+    let errEmail = document.getElementById("errEmail");
+    let email = txtEmail.value.trim();
+
+    if(email === "") {
+        txtEmail.classList.add("invalid");
+        errEmail.innerHTML = "verplicht veld";
+        return;
+    }
+
+    let index = email.indexOf("@");
+    geldigeEmail(index, email);
+}
+
+const geldigeEmail = (index, email) => {
+    if (index === -1){
+        txtEmail.classList.add("invalid");
+        errEmail.innerHTML = "geen geldig email-adres";
+        return;
+    } else if (email[index-1] === "" && email[index+1] === "") {
+        txtEmail.classList.add("invalid");
+        errEmail.innerHTML = "geen geldig email-adres";
+        return;
+    } else if(index === 0 || index === email.length-1){
+        txtEmail.classList.add("invalid");
+        errEmail.innerHTML = "geen geldig email-adres";
+    }
+    else{
+        txtEmail.classList.remove("invalid");
+        txtEmail.className = "";
+        errEmail.innerHTML = "";
+    }
+}
+
+const geldigeDatum =(jaar, maand, dag) =>{
     if(!geldigJaar(jaar)){
         txtGeboortedatum.classList.add("invalid");
         errGeboortedatum.innerHTML = "Geen geldig jaar";
@@ -74,7 +126,6 @@ const valideerGeboortedatum = () =>{
         txtGeboortedatum.className = "";
         errGeboortedatum.innerHTML = "";
     }
-
 }
 
 const geldigJaar = (jaar) => {
@@ -85,12 +136,13 @@ const geldigJaar = (jaar) => {
     }
 }
 
+
 const geldigeMaand = (maand) => {
     if(!isGetal(maand)){
         return false;
     }
     let maandInt = parseInt(maand, 10);
-    if(maand.length === 1 && maandInt > 0) {
+    if(maand.length === 2 && maandInt > 0) {
         return true;
     }
 }
@@ -100,10 +152,9 @@ const geldigeDag = (dag) => {
         return false;
     }
     let dagInt = parseInt(dag, 10)
-    if(dag.length === 1 && dagInt > 0){
+    if(dag.length === 2 && dagInt > 0){
         return true;
     }
-
 }
 
 const isGetal = (tekst) => {
