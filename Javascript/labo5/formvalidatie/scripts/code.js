@@ -74,8 +74,6 @@ const valideerGeboortedatum = () =>{
     } else{
         reportError(txtGeboortedatum, errGeboortedatum, 'Formaat is niet jjjj-mm-dd');
     }
-
-
 }
 
 const valideerEmail = () => {
@@ -88,20 +86,23 @@ const valideerEmail = () => {
         return;
     }
 
-    let index = email.indexOf("@");
-    geldigeEmail(index, email, txtEmail, errEmail);
+    let delen = email.split('@');
+    let index = email.indexOf('@');
+    geldigeEmail(delen, index, email, txtEmail, errEmail);
 }
 
-const geldigeEmail = (index, email, txtEmail, errEmail) => {
-    if (index === -1){
-        reportError(txtEmail, errEmail, 'Geen geldig email-adres');
-    } else if (email[index-1] === "" && email[index+1] === "") {
-        reportError(txtEmail, errEmail, 'Geen geldig email-adres');
-    } else if(index === 0 || index === email.length-1){
-        reportError(txtEmail, errEmail, 'Geen geldig email-adres');
+const geldigeEmail = (delen, index, email, txtEmail, errEmail) => {
+    if(delen.length !== 2) {
+        reportError(txtEmail, errEmail, 'Geen geldig email adres');
+    } else if(email.includes('@ ') || email.includes(' @')) {
+        reportError(txtEmail, errEmail, 'Geen geldig email adres');
+    } else if(index === 0 || index === email.length - 1){
+        reportError(txtEmail, errEmail, 'Geen geldig email adres');
+    }else if (delen[0].length < 1 || delen[1].length < 1) {
+        reportError(txtEmail, errEmail, "Geen geldig email-adres");
     }
     else{
-        clearError(txtEmail, errEmail)
+        clearError(txtEmail, errEmail);
     }
 }
 
