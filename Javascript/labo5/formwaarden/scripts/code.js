@@ -4,7 +4,12 @@ const setup = () => {
 }
 
 const toonResultaat = () => {
-    let roker = document.getElementsByName('roker')[0].checked ?'ja':'nee';
+    let roker = document.getElementsByName('roker')[0];
+    if (roker.checked){
+        console.log("Is roker");
+    } else{
+        console.log("Is geen roker");
+    }
 
     let moedertaal = 'geen keuze';
     let keuzeMoedertaal = document.getElementsByName('moedertaal');
@@ -28,7 +33,6 @@ const toonResultaat = () => {
     }
 
 
-    console.log('is roker: ', roker);
     console.log('Moedertaal: ', moedertaal);
     console.log('Favoriete buurland: ', buurland);
     console.log('Bestelling: ', bestelling);

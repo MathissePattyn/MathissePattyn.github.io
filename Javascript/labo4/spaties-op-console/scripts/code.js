@@ -4,20 +4,6 @@ const setup = () => {
 }
 
 const scheidenMetSpaties = () => {
-    // let tekst = document.getElementById("txtOutput").value;
-    // console.log(tekst);
-    //
-    // let woorden = tekst.split(" ");
-    // console.log(woorden);
-    //
-    // let samengeplakt = "";
-    // for (let i = 0; i < woorden.length; i++) {
-    //     samengeplakt = samengeplakt.concat(woorden[i]);
-    // }
-    // console.log(samengeplakt);
-    //
-    // let gescheiden = samengeplakt.split("").join(" ");
-    // console.log(gescheiden);
 
     let tekstElement = document.getElementById("txtOutput");
     let tekst = tekstElement.value

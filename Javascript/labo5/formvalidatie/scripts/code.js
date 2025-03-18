@@ -11,22 +11,6 @@ const valideer = () => {
     valideerKinderen();
 }
 
-const valideerKinderen = () => {
-    let txtKinderen = document.getElementById("txtKinderen");
-    let errKinderen = document.getElementById("errKinderen");
-    let kinderen = txtKinderen.value.trim();
-    let kinderenInt = parseInt(kinderen, 10);
-
-    if(!isGetal(kinderen) || kinderenInt < 0){
-        reportError(txtKinderen, errKinderen, 'is geen positief getal');
-    } else if(kinderenInt < 99){
-        reportError(txtKinderen, errKinderen, 'is te vruchtbaar');
-    } else{
-        clearError(txtKinderen, errKinderen);
-    }
-}
-
-
 const valideerVoornaam = () => {
     let txtVoornaam = document.getElementById("txtVoornaam");
     let errVoornaam = document.getElementById("errVoornaam");
@@ -106,6 +90,21 @@ const geldigeEmail = (delen, index, email, txtEmail, errEmail) => {
     }
 }
 
+const valideerKinderen = () => {
+    let txtKinderen = document.getElementById("txtKinderen");
+    let errKinderen = document.getElementById("errKinderen");
+    let kinderen = txtKinderen.value.trim();
+    let kinderenInt = parseInt(kinderen, 10);
+
+    if(!isGetal(kinderen) || kinderenInt < 0){
+        reportError(txtKinderen, errKinderen, 'is geen positief getal');
+    } else if(kinderenInt < 99){
+        reportError(txtKinderen, errKinderen, 'is te vruchtbaar');
+    } else{
+        clearError(txtKinderen, errKinderen);
+    }
+}
+
 const geldigeDatum =(jaar, maand, dag, txtGeboortedatum, errGeboortedatum) =>{
     if(!geldigJaar(jaar)){
         reportError(txtGeboortedatum, errGeboortedatum, 'Geen geldig jaar');
@@ -125,7 +124,6 @@ const geldigJaar = (jaar) => {
         return false;
     }
 }
-
 
 const geldigeMaand = (maand) => {
     if(!isGetal(maand)){
