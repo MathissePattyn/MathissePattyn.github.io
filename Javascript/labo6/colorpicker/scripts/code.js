@@ -5,8 +5,10 @@ const setup = () => {
 	  sliders[i].addEventListener("input", update);
   	}
 
-	let btnSave = document.getElementById("save");
-	btnSave.addEventListener("click", save);
+	let btnSave = document.getElementById("btnSave");
+	btnSave.addEventListener("click", saveColors);
+
+	update();
 }
 
 const update = () => {
@@ -29,7 +31,27 @@ const update = () => {
 	swatch.style.backgroundColor = "rgb(" + valueRed + ", " + valueGreen + ", " + valueBlue+")";
 }
 
-const save = () => {
+const saveColors = () => {
+	let swatch = document.getElementById("swatch");
+	let rgb = swatch.style.backgroundColor;
+
+	//maak div element voor de kleur op te slaan
+	let newDiv = document.createElement("div");
+	newDiv.style.backgroundColor = rgb;
+	newDiv.classList.add("savedColors");
+
+	//maak delete button
+	let deleteButton = document.createElement("button");
+	deleteButton.innerText = "X";
+	deleteButton.classList.add("deleteColor");
+	deleteButton.onclick =  () => {
+		newDiv.remove();
+	}
+
+	newDiv.appendChild(deleteButton);
+
+	let savedColors = document.getElementById("savedColors");
+	savedColors.appendChild(newDiv);
 
 }
 
