@@ -1,6 +1,8 @@
 #playField{
     height: 800px;
     width: 600px;
+    position: relative;
+    background-color: lightgray;
 }
 
 

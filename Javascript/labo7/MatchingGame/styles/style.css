@@ -1,0 +1,11 @@
+.kaartspel{
+    display : grid;
+    grid-template-columns : auto auto auto auto;
+    grid-template-rows : auto auto auto;
+    gap: 10px;
+}
+
+.kaart > img {
+    height : 100px;
+    width: 100px;
+}
