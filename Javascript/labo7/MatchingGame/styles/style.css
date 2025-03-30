@@ -1,13 +1,35 @@
 .kaartspel{
-    height: 800px;
+    height: 500px;
     width: 800px;
     display : grid;
     grid-template-columns : auto auto auto auto;
     grid-template-rows : auto auto auto;
-    gap: 10px;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
 }
 
-.kaart > img {
+.kaartContainer {
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.kaart{
+    box-sizing: border-box;
     height : 150px;
     width: 150px;
+}
+
+.voorkant, .achterkant{
+    width: 100%;
+    height: 100%;
+}
+
+.juist{
+    border: 5px solid green;
+}
+
+.fout{
+    border: 5px solid red;
 }
