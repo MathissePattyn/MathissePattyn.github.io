@@ -34,6 +34,13 @@ let startSpel = () => {
         }
 }
 
+let shuffleArray = (array) => {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]]; // Wissel elementen
+    }
+};
+
 let toonKaarten = () => {
 
     //STOP DE KAARTEN IN EEN ARRAY
@@ -43,38 +50,42 @@ let toonKaarten = () => {
     }
     console.log(arrayKaarten);
 
+    let kaartenArray = [...arrayKaarten, ...arrayKaarten];
+    shuffleArray(kaartenArray);
+    console.log(kaartenArray);
+
 
     let kaartspel = document.getElementsByClassName("kaartspel")[0];
-    while(aantalKaarten < 12){
-        for(let i = 1; i < arrayKaarten.length+1; i++){
-            let newDiv = document.createElement("div");
-            newDiv.classList.add("kaart");
 
-            //CONTAINER VOOR VOOR-ACHTERKANT
-            let kaartContainer = document.createElement("div");
-            kaartContainer.classList.add("kaartContainer");
+    kaartenArray.forEach((kaartPad) =>{
+        let newDiv = document.createElement("div");
+        newDiv.classList.add("kaart");
 
-            //ACHTERKANT KAART
-            let kaartAchterkant = document.createElement("img");
-            kaartAchterkant.setAttribute("src", "images/achterkant.png");
-            kaartAchterkant.classList.add("achterkant");
-            kaartContainer.appendChild(kaartAchterkant);
+        //CONTAINER VOOR VOOR-ACHTERKANT
+        let kaartContainer = document.createElement("div");
+        kaartContainer.classList.add("kaartContainer");
 
-            //VOORKANT KAART
-            let kaartImg = document.createElement("img");
-            kaartImg.setAttribute("src",global.IMAGE_PATH_PREFIX + i + global.IMAGE_PATH_SUFFIX);
-            kaartImg.style.display = "none";
-            kaartImg.classList.add("voorkant");
-            kaartContainer.appendChild(kaartImg);
+        //ACHTERKANT KAART
+        let kaartAchterkant = document.createElement("img");
+        kaartAchterkant.setAttribute("src", "images/achterkant.png");
+        kaartAchterkant.classList.add("achterkant");
+        kaartContainer.appendChild(kaartAchterkant);
 
-            //VOEG KAART CONTAINER TOE AAN DE DIV
-            newDiv.appendChild(kaartContainer);
+        //VOORKANT KAART
+        let kaartImg = document.createElement("img");
+        kaartImg.setAttribute("src",kaartPad);
+        kaartImg.style.display = "none";
+        kaartImg.classList.add("voorkant");
+        kaartContainer.appendChild(kaartImg);
 
-            //VOEG DIV TOE AAN HET KAARTSPEL + VERHOOG AANTAL KAARTEN
-            kaartspel.appendChild(newDiv);
-            aantalKaarten++;
-        }
-    }
+        //VOEG KAART CONTAINER TOE AAN DE DIV
+        newDiv.appendChild(kaartContainer);
+
+        //VOEG DIV TOE AAN HET KAARTSPEL + VERHOOG AANTAL KAARTEN
+        kaartspel.appendChild(newDiv);
+        aantalKaarten++;
+
+    });
 
 }
 
