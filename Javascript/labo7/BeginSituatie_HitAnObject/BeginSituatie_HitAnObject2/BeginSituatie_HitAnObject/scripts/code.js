@@ -27,10 +27,14 @@ let start = () => {
 
     let afbeelding = document.getElementById("afbeelding");
     afbeelding.addEventListener("click", () => {
-        verplaatsImg();
-        changeImg();
+        if(img.alt === "bom"){
+            alert("Spel over, je hebt de bom geraakt");
+            img.remove();
+        } else{
+            verplaatsImg();
+            changeImg();
+        }
     })
-
 
 
 };
@@ -53,7 +57,14 @@ let getRandomImage = () => {
 };
 
 let changeImg = () => {
-    let 
+    let img = document.getElementById("afbeelding")
+    let random = Math.floor(Math.random()*global.IMAGE_COUNT);
+    img.setAttribute("src", global.IMAGE_PATH_PREFIX + random + global.IMAGE_PATH_SUFFIX);
+    if(random===0){
+        img.setAttribute("alt","bom");
+    } else{
+        img.setAttribute("alt", "afbeelding");
+    }
 }
 
 
