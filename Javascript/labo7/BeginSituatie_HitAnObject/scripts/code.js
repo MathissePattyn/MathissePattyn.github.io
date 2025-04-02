@@ -45,6 +45,7 @@ const startSpel = () =>{
     target.addEventListener("click", () => {
         if (target.getAttribute("alt") === "bom") {
             alert("Spel over, je hebt de bom geraakt");
+            clearTimeout(global.timeoutId);
         } else {
             global.score++;
             verplaatsImg();
@@ -57,8 +58,8 @@ const startSpel = () =>{
 const verplaatsImg = () => {
     let imgElement = document.getElementById("target");
     let playField = document.getElementById("playField");
-    let maxLeft = playField.clientWidth - imgElement.offsetWidth;
-    let maxHeight = playField.clientHeight - imgElement.offsetHeight;
+    let maxLeft = playField.clientWidth - global.IMAGE_SIZE;
+    let maxHeight = playField.clientHeight - global.IMAGE_SIZE;
 
     let left = Math.floor(Math.random()*maxLeft);
     let top = Math.floor(Math.random()*maxHeight);

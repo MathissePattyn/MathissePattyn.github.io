@@ -103,6 +103,7 @@ const gelijkeKaarten = () => {
 
 
     geselecteerdeKaarten = omgedraaideKaarten.slice(0, global.AANTAL_GELIJKE_KAARTEN);
+    console.log(geselecteerdeKaarten)
     if(omgedraaideKaarten.length === global.AANTAL_GELIJKE_KAARTEN) {
         isBusy = true;
 
