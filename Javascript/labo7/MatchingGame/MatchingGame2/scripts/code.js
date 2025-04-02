@@ -52,6 +52,8 @@ let maakKaartSpel = () => {
         kaartSpel.appendChild(kaartContainer);
     }
 
+
+
 }
 
 window.addEventListener("load", setup);

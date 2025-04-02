@@ -21,7 +21,7 @@ const setup = () => {
 
 }
 
-let startSpel = () => {
+const startSpel = () => {
 
     let btnStart = document.getElementById("btnStart");
     btnStart.remove();
@@ -34,14 +34,14 @@ let startSpel = () => {
         }
 }
 
-let shuffleArray = (array) => {
+const shuffleArray = (array) => {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [array[i], array[j]] = [array[j], array[i]]; // Wissel elementen
     }
 };
 
-let toonKaarten = () => {
+const toonKaarten = () => {
 
     //STOP DE KAARTEN IN EEN ARRAY
     let arrayKaarten = [];
@@ -89,7 +89,7 @@ let toonKaarten = () => {
 
 }
 
-let draaiKaart = (event) =>{
+const draaiKaart = (event) =>{
 
     if(isBusy)return;
 
@@ -114,7 +114,7 @@ let draaiKaart = (event) =>{
     gelijkeKaarten();
 }
 
-let gelijkeKaarten = () => {
+const gelijkeKaarten = () => {
 
     if (isBusy) return;
 
@@ -185,7 +185,7 @@ let gelijkeKaarten = () => {
     }
 }
 
-let speelOpnieuw = () => {
+const speelOpnieuw = () => {
     document.getElementById("btnOpnieuw").style.display = "none";
     let kaartspel = document.getElementsByClassName("kaartSpel")[0];
     kaartspel.innerHTML= "";

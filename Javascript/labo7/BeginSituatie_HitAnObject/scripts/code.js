@@ -24,7 +24,7 @@ const setup = () => {
     }, global.MOVE_DELAY);
 };
 
-let startSpel = () =>{
+const startSpel = () =>{
     global.score = 0;
     let playfield = document.getElementById("playField");
 
@@ -54,7 +54,7 @@ let startSpel = () =>{
     });
 };
 
-let verplaatsImg = () => {
+const verplaatsImg = () => {
     let imgElement = document.getElementById("target");
     let playField = document.getElementById("playField");
     let maxLeft = playField.clientWidth - imgElement.offsetWidth;
@@ -66,7 +66,7 @@ let verplaatsImg = () => {
     imgElement.style.top = top+"px";
 }
 
-let changeImg = () => {
+const changeImg = () => {
     let target = document.getElementById("target");
     let randomImgIndex = Math.floor(Math.random()*global.IMAGE_COUNT);
 
