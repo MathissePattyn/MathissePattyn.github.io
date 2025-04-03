@@ -204,7 +204,7 @@ window.addEventListener("load", setup);
 //
 //         let achterkantKaart = document.createElement("img");
 //         achterkantKaart.setAttribute("class", "achterkant");
-//         achterkantKaart.setAttribute("src", "images/achterkant.png");
+//         achterkantKaart.setAttribute("src", "images/2.png");
 //         kaartContainer.appendChild(achterkantKaart);
 //
 //

@@ -1,6 +1,40 @@
 #btnStart{
     font-size: 30px;
     margin: 0 auto;
+    width: 500px;
+    height: 40px;
+
+}
+
+#kaartspelContainer{
+    padding: 10px;
+    width: 800px;
+    height: 800px;
     display: flex;
+    align-items: center;
     justify-content: center;
+}
+
+#kaartenComputer{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+#kaartspel{
+
+}
+
+.kaart{
+    margin: 5px;
+}
+
+.voorkant{
+    height: 100px;
+    width: 75px;
+}
+
+.achterkant{
+    height: 100px;
+    width: 75px;
 }
