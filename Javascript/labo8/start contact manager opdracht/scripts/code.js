@@ -19,14 +19,19 @@ const bewaarBewerktePersoon = () => {
             vulPersoonOpBasisVanUserInterface(persoon);
             personen.push(persoon); // toevoegen aan interne lijst
             voegPersoonToeAanLijstInUserInterface(persoon);
+            console.log("persoon toegevoegd");
+            console.log(personen);
         } else {
             // bestaande persoon wijzigen
             persoon = personen[lstPersonen.selectedIndex];
             vulPersoonOpBasisVanUserInterface(persoon);
             updatePersoonInLijstInUserInterface(persoon);
+            console.log(personen);
         }
     }
 }
+
+
 // indien ok, bewaar de ingegeven data.
 // een nieuw aangemaakte persoon voegen we toe
 // een bestaande persoon in de lijst passen we aan
@@ -40,21 +45,23 @@ const  vulPersoonOpBasisVanUserInterface = (persoon) =>{
 
 
 const voegPersoonToeAanLijstInUserInterface = (persoon) =>{
-    // zorg ervoor dat de naam en voornaam ook aangepast en/of zichtbaar zijn in de lijst na updaten
+
     let lstPersonen = document.getElementById("lstPersonen");
     let newSelect = document.createElement("option");
+    newSelect.setAttribute("class", "persoon");
     let textNode = document.createTextNode(persoon.VOORNAAM + " " + persoon.FAMILIENAAM);
     newSelect.appendChild(textNode);
     lstPersonen.appendChild(newSelect);
 }
 
 const updatePersoonInLijstInUserInterface = (persoon) => {
+    console.log("update persoon");
+    // zorg ervoor dat de naam en voornaam ook aangepast en/of zichtbaar zijn in de lijst na updaten
 
-    let lstPersonen =document.getElementById("lstPersonen");
-    let index = lstPersonen.options.selectedIndex;
+    let lstPersonen = document.getElementById("lstPersonen");
+    let selectedOption = lstPersonen.options[lstPersonen.selectedIndex];
 
-    let lijstPersoon = personen[index];
-
+    selectedOption.textContent = persoon.VOORNAAM + " " + persoon.FAMILIENAAM;
 
 }
 
@@ -74,6 +81,19 @@ const bewerkNieuwePersoon = () => {
 };
 
 
+const toonPersoon = () => {
+    let lstPersonen = document.getElementById("lstPersonen");
+    let geselecteerdeIndex = lstPersonen.selectedIndex;
+    let persoon = personen[geselecteerdeIndex];
+
+
+    document.getElementById("txtVoornaam").value = persoon.VOORNAAM;
+    document.getElementById("txtFamilienaam").value = persoon.FAMILIENAAM;
+    document.getElementById("txtGeboortedatum").value = persoon.GEBOORTEDATUM;
+    document.getElementById("txtEmail").value = persoon.EMAIL;
+    document.getElementById("txtAantalKinderen").value = persoon.AANTAL_KINDEREN;
+}
+
 // onze setup functie die de event listeners registreert
 const setup = () => {
     let btnBewaar = document.getElementById("btnBewaar");
@@ -83,6 +103,7 @@ const setup = () => {
     btnNieuw.addEventListener("click", bewerkNieuwePersoon);
 
     let lstPersonen = document.getElementById("lstPersonen");
+    lstPersonen.addEventListener("change", toonPersoon);
 
     // voeg een change listener toe aan lstPersonen. Bij het klikken op een option element in de lijst
     // moet de data van die persoon getoond worden in het formulier
