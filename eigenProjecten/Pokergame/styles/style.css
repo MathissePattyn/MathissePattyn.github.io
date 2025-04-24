@@ -20,6 +20,14 @@
     display: flex;
     flex-wrap: wrap;
     gap: 40px;
+    margin: 50px;
+}
+
+#kaartenSpeler{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin: 50px;
 }
 
 #kaartspel{
@@ -38,4 +46,9 @@
 .achterkant{
     height: 100px;
     width: 75px;
+}
+
+.geselecteerd{
+    box-sizing: border-box;
+    border: 3px solid green;
 }

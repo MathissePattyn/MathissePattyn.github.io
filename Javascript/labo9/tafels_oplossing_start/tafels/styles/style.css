@@ -10,3 +10,8 @@
 .even{
     background-color: lightgrey;
 }
+
+.tableContainer{
+    display: flex;
+    flex-wrap: wrap;
+}
