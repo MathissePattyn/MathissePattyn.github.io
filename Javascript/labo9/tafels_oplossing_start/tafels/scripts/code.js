@@ -1,44 +1,47 @@
 const setup = () => {
     let go = document.getElementById('btnGo');
-    go.addEventListener('click', maakTabel);
+    go.addEventListener('click', voegTafelToe);
 }
 
+const voegTafelToe = () => {
+    const invoer = parseInt(document.getElementById('invoer').value);
 
-const maakTabel = () => {
+    let tabelArray = JSON.parse(localStorage.getItem('tabellen')) || [];
 
-    let tabellen = document.getElementsByClassName("tabel");
-    let opgeslagenTabellen = [];
-    for(let i = 0; i < tabellen.length; i++) {
-        let header = tabellen[i].getElementsByClassName("header")[0].textContent;
-        let delen = header.split(" ");
-        let invoer = parseInt(delen[2]);
-        opgeslagenTabellen.push({
-            invoer: invoer,
-            header: header
-        })
-        // verwijderAlleChildren(tabellen[i]);
+    tabelArray.push({ invoer });
+    let JSONArray = JSON.stringify(tabelArray);
+    localStorage.setItem('tabellen', JSONArray);
+
+
+    document.getElementById('invoer').value = ""; // Leeg inputveld
+
+    laadTabellen();
+}
+
+const laadTabellen = () => {
+    document.querySelector('.tableContainer').innerHTML = "";
+    let JSONTabel = localStorage.getItem('tabellen');
+    let tabelArray = JSON.parse(JSONTabel);
+    for (let i = 0; i < tabelArray.length; i++) {
+        maakTabel(tabelArray[i].invoer);
     }
+}
 
-    let JSONTabel = JSON.stringify(opgeslagenTabellen);
-
-    localStorage.setItem("tabellen", JSONTabel);
+const maakTabel = (invoer) => {
 
     let table = document.createElement('div');
     table.classList.add('tabel');
 
-    let invoer = document.getElementById('invoer');
+    // let invoer = invoerOpgeslagenTabellen || document.getElementById('invoer').value;
 
-    maakHeader(table);
-    maakTafels(table);
+    maakHeader(table, invoer);
+    maakTafels(table, invoer);
 
     let tableContainer = document.getElementsByClassName("tableContainer")[0];
     tableContainer.appendChild(table);
-    invoer.value = "";
 }
 
-const maakHeader = (tabel) => {
-    let invoer = document.getElementById("invoer").value;
-
+const maakHeader = (tabel, invoer) => {
     let tijdstip = new Date();
     let newDiv = document.createElement("div");
     newDiv.classList.add("header");
@@ -48,8 +51,7 @@ const maakHeader = (tabel) => {
     tabel.appendChild(newDiv);
 }
 
-const maakTafels = (tabel) => {
-    let invoer = document.getElementById("invoer").value;
+const maakTafels = (tabel, invoer) => {
     let maxTafels = 10;
     for (let i = 1; i <= maxTafels; i++) {
         let newDiv = document.createElement("div");
@@ -60,12 +62,6 @@ const maakTafels = (tabel) => {
             newDiv.classList.add("even");
         }
         tabel.appendChild(newDiv);
-    }
-}
-
-const verwijderAlleChildren = (element) => {
-    while (element.firstChild) {
-        element.removeChild(element.firstChild);
     }
 
 }
