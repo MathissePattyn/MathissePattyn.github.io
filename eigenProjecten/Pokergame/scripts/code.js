@@ -38,48 +38,62 @@ const maakKaartArray = () => {
     console.log(kaartenArray);
 }
 
+const maakVoorkantKaart = (kaartSrc) => {
+    console.log("maakVoorkantKaard");
+    let voorkantKaart = document.createElement("img");
+    voorkantKaart.setAttribute("class", "voorkant");
+    voorkantKaart.setAttribute("src", kaartSrc);
+    voorkantKaart.setAttribute("alt", "voorkant");
+    return voorkantKaart;
+}
+
+const maakAchterkantKaart = () => {
+    console.log("maakAchterkantKaart");
+    let achterkantKaart = document.createElement("img");
+    achterkantKaart.setAttribute("class", "achterkant");
+    achterkantKaart.setAttribute("src", "images/achterkantKaart2.png");
+    achterkantKaart.setAttribute("alt", "achterkant");
+    return achterkantKaart;
+}
+
+const maakKaartContainer = (kaartSrc, toonAchterkant) => {
+  console.log("maakKaartContainer");
+  let kaartContainer = document.createElement("div");
+    kaartContainer.setAttribute("class", "kaartContainer");
+
+//     Voeg voorkant toe
+    let voorkantKaart = maakVoorkantKaart(kaartSrc);
+    kaartContainer.appendChild(voorkantKaart);
+
+//     voeg achterkant toe, indien gewenst
+    if(toonAchterkant) {
+        let achterkantKaart = maakAchterkantKaart();
+        kaartContainer.appendChild(achterkantKaart);
+    }
+
+    return kaartContainer;
+
+}
+
+
 const toonKaartenComputer = () => {
     console.log("toonKaartenComputer");
     let kaartspel = document.getElementById("kaartspel");
     let kaartenComputer = document.getElementById("kaartenComputer");
-    kaartenComputer.setAttribute("class", "kaartContainer");
+    kaartenComputer.setAttribute("class", "kaartenComputer");
 
 
-    for(let i = 0; i < 5; i++) {
-        if(i===3 || i===4){
-            let kaartContainer = document.createElement("div");
-            kaartContainer.setAttribute("class", "kaartContainer");
+    for(let i = 0; i<5;i++){
+        let toonAchterkant = (i===3||i===4);
 
-            // achterkant kaart
-            let achterkantKaart = document.createElement("img");
-            achterkantKaart.setAttribute("class", "achterkant");
-            achterkantKaart.setAttribute("src", "images/achterkant2.png");
-            achterkantKaart.setAttribute("alt", "achterkant");
-            kaartContainer.appendChild(achterkantKaart);
+        let kaartContainer = maakKaartContainer(kaartenArray[i], toonAchterkant);
 
-            kaartenComputer.appendChild(kaartContainer);
-            kaartspel.appendChild(kaartenComputer);
-        } else{
-            // KaartContainer om voor en achterkant op te slaan
-            let kaartContainer = document.createElement("div");
-            kaartContainer.setAttribute("class", "kaartContainer");
-
-            // voorkant kaart
-            let voorkantKaart = document.createElement("img");
-            voorkantKaart.setAttribute("class", "voorkant");
-            voorkantKaart.setAttribute("src", kaartenArray[i]);
-            voorkantKaart.setAttribute("alt", "voorkant");
-            kaartContainer.appendChild(voorkantKaart);
-
-            // Achterkant kaart
-
-
-            kaartenComputer.appendChild(kaartContainer);
-            kaartspel.appendChild(kaartenComputer);
-        }
+        kaartenComputer.appendChild(kaartContainer);
     }
 
+    kaartspel.appendChild(kaartenComputer);
 }
+
 
 const shuffle = (array) => {
     let currentIndex = array.length, randomIndex, temporaryValue;
