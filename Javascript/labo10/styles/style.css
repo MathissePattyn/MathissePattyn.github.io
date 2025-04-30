@@ -1,0 +1,43 @@
+*{
+    margin: 0 auto;
+}
+.google{
+    background-color: darkblue;
+    width: 100%;
+}
+
+.youtube{
+    background-color: red;
+    width: 100%;
+}
+
+.x{
+    background-color: lightblue;
+    width: 100%;
+}
+
+.instagram{
+    background-color: orange;
+    width: 100%;
+}
+
+#btnGo{
+    width: 100%;
+    background-color: green;
+    border: none;
+    border-radius: 10px;
+}
+
+#txtInput{
+    width: 100%;
+    border-radius: 10px;
+}
+
+.card-body{
+    border-radius: 10px;
+}
+
+.card{
+    border: none;
+    border-radius: 10px;
+}
