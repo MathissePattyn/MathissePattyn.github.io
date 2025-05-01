@@ -76,7 +76,6 @@ const openCommando = (url) => {
 }
 
 const makeCard = (title, text, url) =>{
-    let divCol4 = makeElementWithClass("div", "col-4");
     let divCard = makeElementWithClass("div", "card");
     let cardBody = makeElementWithClass("div", "card-body");
     let cardText = makeElementWithClassAndText("p", "card-text", text);
@@ -89,14 +88,14 @@ const makeCard = (title, text, url) =>{
 
     divCard.append(cardBody);
 
-    divCol4.append(divCard);
-
-    return divCol4;
+    return divCard;
 
 }
 
-const addCard = (divCol4) =>{
+const addCard = (card) =>{
     let divRow = document.getElementsByClassName("row")[0];
+    let divCol4 = makeElementWithClass("div", "col-4");
+    divCol4.append(card);
     divRow.appendChild(divCol4);
 }
 
