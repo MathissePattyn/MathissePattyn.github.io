@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles/style.css">
+    <title>toDo</title>
+</head>
+<body>
+
+<div class="toDo">
+    <input type="text" placeholder="Titel" id="titel">
+    <input type="text" placeholder="Omschrijving" id="omschrijving">
+    <input type="button" value="Voeg Taak Toe" id="btnVoegToe">
+</div>
+
+<div class="board">
+    <div class="column" id="todo" data-status="todo">
+        <h3>To Do</h3>
+    </div>
+    <div class="column" id="inprogress" data-status="inprogress">
+        <h3>In Progress</h3>
+    </div>
+    <div class="column" id="done" data-status="done">
+        <h3>Done</h3>
+    </div>
+</div>
+
+
+<script type="text/javascript" charset="utf-8" src="scripts/code.js"></script>
+</body>
+</html>
