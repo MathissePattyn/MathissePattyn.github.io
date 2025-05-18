@@ -1,11 +1,18 @@
+let tasks = [];
+
 const setup = () => {
-    laadTaken();
+    loadTasks();
+    renderTasks();
     setupEventListeners();
-}
+};
+
+const loadTasks = () => {
+    const saved = localStorage.getItem('VIVES-TODO');
+    if (saved) tasks = JSON.parse(saved);
+};
 
 const setupEventListeners = () => {
-    let btnVoegToe = document.getElementById('btnVoegToe');
-    btnVoegToe.addEventListener('click', voegTaakToe);
+    document.getElementById('btnToDo').addEventListener('click', handleForm);
     document.querySelectorAll('.column').forEach(col => {
         const status = col.dataset.status;
         //Het dragover-event wordt geactiveerd wanneer een gesleept element over een geldig dropgebied beweegt
@@ -18,111 +25,93 @@ const setupEventListeners = () => {
         col.addEventListener('dragover', e => e.preventDefault());
         col.addEventListener('drop', e => handleDrop(e, status));
     });
-
-}
-
-const handleDrop = (e, status) => {
-    e.preventDefault();
-    let taskId = e.dataTransfer.getData("text/plain");
-    let taskElement = document.getElementById(taskId);
-    console.log(taskElement);
-
-    taskElement.dataset.status = status;
-
-    // const id = e.dataTransfer.getData("text");
-
-    let taken = JSON.parse(localStorage.getItem('taken')) || [];
-    let taskIndex = taken.findIndex(task => task.id === taskElement.id);
-    if(taskIndex !== -1){
-        taken[taskIndex].status = status;
-        localStorage.setItem('taken', JSON.stringify(taken));
-    }
-
-
-    e.currentTarget.appendChild(taskElement);
-}
-
-const voegTaakToe = () => {
-    let todo = document.getElementById('todo');
-    let status = todo.dataset.status;
-
-    let kaart = maakKaart(status);
-
-    todo.appendChild(kaart);
-}
-
-
-const maakKaart = (status) => {
-
-    let titel = document.getElementById('titel');
-    let omschrijving = document.getElementById('omschrijving');
-
-    let pTitel = document.createElement("p");
-    let pOmschrijving = document.createElement("p");
-
-    let txtTitel = document.createTextNode(titel.value);
-    let txtOmschrijving = document.createTextNode(omschrijving.value);
-
-    let taskDiv = document.createElement('div');
-    taskDiv.className = 'task';
-
-    pTitel.appendChild(txtTitel);
-    pOmschrijving.appendChild(txtOmschrijving);
-    taskDiv.appendChild(pTitel);
-    taskDiv.appendChild(pOmschrijving);
-
-    taskDiv.draggable = true;
-
-    let taskId = "task-" + Date.now();
-    taskDiv.id = taskId;
-    taskDiv.addEventListener('dragstart', e => {
-        e.dataTransfer.setData('text/plain', taskDiv.id);
-    });
-
-
-    let task = {
-        id: taskId,
-        titel: titel.value,
-        omschrijving: omschrijving.value,
-        // datum: Date.now(),
-        status: status
-    }
-    let taken = JSON.parse(localStorage.getItem('taken')) || [];
-    taken.push(task);
-    localStorage.setItem('taken', JSON.stringify(taken));
-
-
-    return taskDiv;
-}
-
-const renderTaak = (taak) => {
-    let taskDiv = document.createElement('div');
-    taskDiv.className = 'task';
-    taskDiv.id = taak.id;
-    taskDiv.dataset.status = taak.status;
-
-    let pTitel = document.createElement("p");
-    pTitel.textContent = taak.titel;
-
-    let pOmschrijving = document.createElement("p");
-    pOmschrijving.textContent = taak.omschrijving;
-
-    taskDiv.appendChild(pTitel);
-    taskDiv.appendChild(pOmschrijving);
-
-    taskDiv.draggable = true;
-    taskDiv.addEventListener('dragstart', e => {
-        e.dataTransfer.setData('text/plain', taak.id);
-    });
-
-    const column = document.querySelector('[data-status="' + taak.status + '"]');
-    column.appendChild(taskDiv);
 };
 
+const handleForm = () => {
 
-const laadTaken = () => {
-    let taken = JSON.parse(localStorage.getItem('taken')) || [];
-    taken.forEach(taak => renderTaak(taak));
-}
+    const title = document.getElementById('title').value.trim();
+    const description = document.getElementById('description').value.trim();
 
+    const task = {
+        title: title,
+        description: description,
+        createdAt: new Date().toISOString(),
+        status: 'todo'
+    };
+    tasks.push(task);
+    saveAndRender();
+};
+
+const renderTasks = () => {
+    ['todo', 'inprogress', 'done'].forEach(status => {
+        const column = document.getElementById(status);
+        // Bewaar de bestaande <h3>-tekst
+        const oldHeading = column.querySelector('h3').textContent;
+        // Maak een nieuwe <h3> met een tekstnode
+        const newHeading = document.createElement('h3');
+        const textNode = document.createTextNode(oldHeading);
+        // Verwijder alle bestaande kinderen
+        while (column.firstChild) {
+            column.removeChild(column.firstChild);
+        }
+        newHeading.appendChild(textNode);
+        column.appendChild(newHeading);
+
+        // Voeg de taken toe
+        tasks
+            .filter(t => t.status === status)
+            .forEach(task => {
+                const taskDiv = document.createElement('div');
+                taskDiv.className = 'task';
+                taskDiv.draggable = true;
+                taskDiv.id = task.createdAt;
+
+                // Titel
+                const title = document.createElement('strong');
+                title.appendChild(document.createTextNode(task.title));
+
+                // Beschrijving
+                const description = document.createElement('div');
+                description.appendChild(document.createTextNode(task.description));
+
+                // Datum
+                const date = document.createElement('small');
+                date.appendChild(document.createTextNode(task.createdAt));
+
+                // Voeg elementen toe aan taskDiv
+                taskDiv.appendChild(title);
+                taskDiv.appendChild(document.createElement('br'));
+                taskDiv.appendChild(description);
+                taskDiv.appendChild(document.createElement('br'));
+                taskDiv.appendChild(date);
+
+                // Voeg event listener toe
+                taskDiv.addEventListener('dragstart', handleDragStart);
+
+                // Voeg taskDiv toe aan kolom
+                column.appendChild(taskDiv);
+            });
+    });
+};
+
+const saveAndRender = () => {
+    localStorage.setItem('VIVES-TODO', JSON.stringify(tasks));
+    renderTasks();
+};
+
+const handleDragStart = (e) => {
+    e.dataTransfer.setData("text/plain", e.target.id);
+};
+
+const handleDrop = (e, newStatus) => {
+    e.preventDefault();
+    const id = e.dataTransfer.getData("text");
+    const task = tasks.find(t => t.createdAt === id);
+    if (task) {
+        task.status = newStatus;
+        saveAndRender();
+    }
+};
+
+// Start de app correct bij laden van de pagina
 window.addEventListener("load", setup);
