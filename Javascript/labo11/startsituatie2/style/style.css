@@ -55,3 +55,31 @@ body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
 	grid-template-areas: "title title" "buttons buttons" "image description";
 }
 
+.title{
+	grid-area: title;
+	font-weight: bold;
+	font-size: large;
+	margin-top: 10px;
+}
+
+.buttons{
+	grid-area: buttons;
+}
+
+.image{
+	grid-area: image;
+	margin: 10px 10px 10px 0;
+}
+
+.description{
+	grid-area: description;
+	margin: 10px
+}
+
+.like{
+	color:green;
+}
+
+.dislike{
+	color: red;
+}
