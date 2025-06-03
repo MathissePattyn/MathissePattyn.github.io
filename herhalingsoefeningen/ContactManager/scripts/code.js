@@ -74,6 +74,7 @@ const laadGegevens = (event) => {
     document.getElementById("txtGeboorteDatum").value = persoon.geboorteDatum;
     document.getElementById("txtEmail").value = persoon.email;
     document.getElementById("txtAantalKinderen").value = persoon.aantalKinderen;
+
 }
 
 window.addEventListener("load", setup);
