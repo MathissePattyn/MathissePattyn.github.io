@@ -2,7 +2,7 @@ let AANTAL_HORIZONTAAL=4;
 let AANTAL_VERTICAAL=3;
 let AANTAL_KAARTEN=6;
 let AANTAL_GELIJKE_KAARTEN = 2;
-let PREFIX = "kaart";
+let PREFIX = "images/kaart";
 let SUFFIX = ".png"
 
 const setup = () => {
@@ -19,7 +19,7 @@ const startSpel = () => {
 
 const maakKaartenArray = () =>{
     let kaartenArray = [];
-    for(let i =0; i<AANTAL_KAARTEN-1;i++){
+    for(let i =1; i<AANTAL_KAARTEN;i++){
         let kaartPad = (PREFIX + i + SUFFIX);
 
         for (let j =0;j<AANTAL_KAARTEN-1;j++){
@@ -50,6 +50,7 @@ const maakKaartSpel = () => {
 
         kaartContainer.appendChild(achterkantKaart);
         kaartContainer.appendChild(voorkantKaart);
+
         kaartSpel.appendChild(kaartContainer);
     }
 }
