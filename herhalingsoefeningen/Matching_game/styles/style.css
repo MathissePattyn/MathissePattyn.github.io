@@ -1,0 +1,16 @@
+.achterkant{
+    height: 150px;
+    widht: 150px;
+}
+
+.voorkant{
+    height: 150px;
+    width: 150px;
+}
+
+#kaartSpel{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}

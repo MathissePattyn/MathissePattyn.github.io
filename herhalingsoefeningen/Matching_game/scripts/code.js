@@ -8,6 +8,12 @@ let SUFFIX = ".png"
 const setup = () => {
     let btnStart = document.getElementById("btnStart");
     btnStart.addEventListener("click", startSpel)
+
+}
+
+const draaiKaart = (event) => {
+    let e = event.currentTarget;
+    console.log(e)
 }
 
 const startSpel = () => {
@@ -15,17 +21,22 @@ const startSpel = () => {
     btnStart.remove();
 
     maakKaartSpel();
+
+    let kaarten = document.getElementsByClassName("kaartContainer");
+    for(let i = 0; i < kaarten.length; i++) {
+        kaarten[i].addEventListener("click", draaiKaart);
+    }
 }
 
 const maakKaartenArray = () =>{
     let kaartenArray = [];
-    for(let i =1; i<AANTAL_KAARTEN;i++){
+    for(let i =1; i<=AANTAL_KAARTEN;i++){
         let kaartPad = (PREFIX + i + SUFFIX);
-
-        for (let j =0;j<AANTAL_KAARTEN-1;j++){
+        for (let j =0;j<AANTAL_GELIJKE_KAARTEN;j++){
             kaartenArray.push(kaartPad);
         }
     }
+    console.log(kaartenArray)
     return kaartenArray;
 }
 
@@ -34,6 +45,7 @@ const maakKaartSpel = () => {
     let kaartenArray = maakKaartenArray();
 
     let kaartSpel = document.getElementById("kaartSpel");
+    console.log(kaartSpel)
 
     for(let i =0; i<kaartenArray.length; i++){
         let kaartContainer = maakElementMetClassEnText("div","kaartContainer");
@@ -47,6 +59,7 @@ const maakKaartSpel = () => {
         voorkantKaart.setAttribute("class","voorkant");
         voorkantKaart.setAttribute("src", kaartenArray[i]);
         voorkantKaart.setAttribute("alt","voorkant");
+        voorkantKaart.style.visibility = "hidden";
 
         kaartContainer.appendChild(achterkantKaart);
         kaartContainer.appendChild(voorkantKaart);

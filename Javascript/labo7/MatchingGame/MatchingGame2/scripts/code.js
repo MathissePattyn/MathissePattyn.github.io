@@ -34,7 +34,7 @@ const maakKaartenArray = () => {
     for(let i = 1; i<global.AANTAL_KAARTEN+1;i++){
         let kaartPad = global.IMAGE_PATH_PREFIX + i + global.IMAGE_PATH_SUFFIX;
 
-        for (let j = 0; j < global.AANTAL_GELIJKE_KAARTEN; j++) {
+        for (let j = 1; j < global.AANTAL_GELIJKE_KAARTEN; j++) {
             kaartenArray.push(kaartPad);
         }
     }
